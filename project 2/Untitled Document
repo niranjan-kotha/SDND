@@ -1,0 +1,23 @@
+https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2
+chmod 600 nira.pem
+ssh -i key.pem ubuntu@ec2-54-200-255-233.us-west-2.compute.amazonaws.com
+git clone https://github.com/niranjan-kotha/project2
+cd project2
+chmod +x getdata.sh
+sudo ./getdata.sh
+cd
+sudo apt-get update
+sudo apt-get -y install docker.io
+sudo usermod -aG docker $(whoami)
+git clone https://github.com/niranjan-kotha/Gorre-traffic-signs
+cd Gorre-traffic-signs
+cd docker_ubuntu
+sudo ./build.sh
+sudo ./run.sh
+
+
+jupyter notebook --ip='*' --port=8888 --no-browser
+open notebook @ PublicDNS:8888
+
+
+docker rm
